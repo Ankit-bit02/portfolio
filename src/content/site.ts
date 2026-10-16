@@ -15,8 +15,7 @@ export const site = {
 	headline: 'Software Developer · Backend · 1.5+ years experience',
 
 	// ---- Contact & links ------------------------------------------------------
-	// TODO: replace the placeholder email with your real address.
-	email: 'you@example.com',
+	email: 'karnaankit064@gmail.com',
 	github: {
 		url: 'https://github.com/Ankit-bit02',
 		label: 'github.com/Ankit-bit02'

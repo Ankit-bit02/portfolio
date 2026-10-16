@@ -35,7 +35,3 @@ export const contact = {
 	title: "Reviewing my application? I'm happy to walk through any project.",
 	formNote: 'Sent securely, with spam filtering.'
 };
-
-/** Résumé preview modal: the summary paragraph. */
-export const resumeSummary =
-	'Backend developer with 1.5+ years of experience building reliable, maintainable web applications and APIs with .NET and Django, relational databases, and structured testing practices.';
