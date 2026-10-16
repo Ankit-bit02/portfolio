@@ -1,0 +1,224 @@
+/* =============================================================================
+   GLOBAL STYLES
+   -----------------------------------------------------------------------------
+   1. Design tokens  → change colors, fonts, widths here and the whole site
+                       follows. Components only use these variables.
+   2. Base reset     → element defaults.
+   3. Shared helpers → small classes reused by several sections
+                       (.container, .section, .eyebrow, .h2, .btn ...).
+   Component-specific styles live inside each .svelte file (scoped).
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   1. DESIGN TOKENS
+   ----------------------------------------------------------------------------- */
+:root {
+	/* Brand */
+	--color-accent: #8a1c2b; /* maroon: links, primary buttons, eyebrows */
+	--color-accent-hover: #6e1522;
+	--color-accent-soft: #f5e9ea;
+	--color-warn: #c98a2e; /* "in progress" amber */
+	--color-warn-bg: #fbf4e8;
+	--color-warn-text: #8a5a12;
+	--color-error: #b42318;
+	--color-error-bg: #fbe9e7;
+	--color-success: #3f6b2a;
+
+	/* Surfaces */
+	--color-bg: #faf8f5; /* page background */
+	--color-bg-alt: #f3f0eb; /* alternating sections (projects, contact) */
+	--color-surface: #ffffff; /* cards */
+	--color-hover: #f0ece6;
+	--color-dark: #1f1d1b; /* API explorer section */
+	--color-code-bg: #1c1a19; /* code blocks */
+
+	/* Text */
+	--color-text: #1f1d1b;
+	--color-text-2: #3d3835;
+	--color-text-3: #57514c;
+	--color-muted: #6b6560;
+	--color-faint: #8a837c;
+	--color-faintest: #b0a89f;
+	--color-code-text: #ede7e1;
+
+	/* Borders */
+	--color-border: #e6e1da;
+	--color-border-soft: #eeeae4;
+	--color-border-strong: #d9d3cb;
+	--color-border-hover: #b9afa4;
+
+	/* Typography (fonts loaded in src/routes/+layout.svelte) */
+	--font-sans: 'Geist Variable', system-ui, -apple-system, sans-serif;
+	--font-mono: 'Geist Mono Variable', ui-monospace, monospace;
+
+	/* Layout */
+	--container: 1280px;
+	--gutter: clamp(20px, 4vw, 48px);
+	--section-pad: clamp(56px, 8vw, 88px);
+	--header-h: 64px;
+	--radius-sm: 4px;
+	--radius: 7px;
+	--radius-lg: 10px;
+}
+
+/* -----------------------------------------------------------------------------
+   2. BASE RESET
+   ----------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+	scroll-padding-top: 72px; /* keeps anchored sections clear of the sticky header */
+}
+
+body {
+	margin: 0;
+	background: var(--color-bg);
+	color: var(--color-text);
+	font-family: var(--font-sans);
+	-webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+p,
+pre,
+ul,
+ol {
+	margin: 0;
+}
+
+a {
+	color: var(--color-accent);
+	text-decoration: none;
+}
+a:hover {
+	color: var(--color-accent-hover);
+	text-decoration: underline;
+}
+
+button {
+	font: inherit;
+	color: inherit;
+	background: none;
+	border: 0;
+	padding: 0;
+	cursor: pointer;
+	text-align: inherit;
+}
+
+:focus-visible {
+	outline: 2px solid var(--color-accent);
+	outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+	*,
+	*::before,
+	*::after {
+		transition: none !important;
+		animation: none !important;
+	}
+}
+
+/* -----------------------------------------------------------------------------
+   3. SHARED HELPERS
+   ----------------------------------------------------------------------------- */
+
+/* Centered max-width wrapper used by every section */
+.container {
+	max-width: var(--container);
+	margin: 0 auto;
+	padding-inline: var(--gutter);
+}
+
+/* Standard vertical rhythm for home page sections */
+.section {
+	border-top: 1px solid var(--color-border);
+}
+.section > .container {
+	padding-block: var(--section-pad);
+}
+.section--alt {
+	background: var(--color-bg-alt);
+}
+
+/* Small monospace label above headings, e.g. "02 · Skills" */
+.eyebrow {
+	font: 500 12px var(--font-mono);
+	color: var(--color-accent);
+}
+
+/* Section title */
+.h2 {
+	font-size: clamp(26px, 3vw, 34px);
+	letter-spacing: -0.025em;
+	font-weight: 600;
+	line-height: 1.15;
+}
+
+.mono {
+	font-family: var(--font-mono);
+}
+
+/* Buttons */
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	padding: 13px 21px;
+	border-radius: var(--radius);
+	font-weight: 500;
+	font-size: 15px;
+	white-space: nowrap;
+	transition:
+		background 0.15s,
+		border-color 0.15s,
+		color 0.15s;
+}
+.btn:hover {
+	text-decoration: none;
+}
+.btn--primary {
+	background: var(--color-accent);
+	color: #fff;
+	padding: 14px 22px;
+}
+.btn--primary:hover {
+	background: var(--color-accent-hover);
+	color: #fff;
+}
+.btn--primary:disabled {
+	opacity: 0.7;
+	cursor: progress;
+}
+.btn--outline {
+	border: 1px solid #cfc8bf;
+	color: var(--color-text);
+}
+.btn--outline:hover {
+	border-color: var(--color-text);
+	color: var(--color-text);
+}
+
+/* Visually hidden but readable by screen readers */
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
