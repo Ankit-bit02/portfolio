@@ -1,17 +1,9 @@
-// =============================================================================
-// SITE-WIDE SETTINGS  ← start here when editing the portfolio
-// -----------------------------------------------------------------------------
-// Your name, contact links and the main page copy. Everything here is used in
-// several places (header, hero, footer, résumé, command palette, SEO tags),
-// so changing it once updates the whole site.
-// =============================================================================
-
 export const site = {
 	// ---- Identity -------------------------------------------------------------
 	name: 'Ankit Karna',
 	/** Shown under your name in the header. */
 	role: 'Backend Developer',
-	/** Eyebrow line in the hero and the résumé header. */
+	/** Eyebrow line in the hero and the resume header. */
 	headline: 'Software Developer · Backend · 1.5+ years experience',
 
 	// ---- Contact & links ------------------------------------------------------
@@ -26,9 +18,9 @@ export const site = {
 	},
 
 	/**
-	 * Path to your résumé PDF inside /static. Put the file at
+	 * Path to your resume PDF inside /static. Put the file at
 	 * static/documents/resume.pdf and set `resumeAvailable` to true to
-	 * enable the "Download PDF" button in the résumé preview.
+	 * enable the "Download PDF" button in the resume preview.
 	 */
 	resumePdf: '/documents/resume.pdf',
 	resumeAvailable: true,
@@ -41,8 +33,12 @@ export const site = {
 	},
 
 	// ---- Footer ---------------------------------------------------------------
-	footerNote: 'Independent personal portfolio',
-	footerStack: 'SvelteKit + TypeScript · source on GitHub'
+	footer: {
+		/** Small line under your name/role. */
+		stack: '.NET · Django · SQL Server',
+		/** Availability line with the green dot. Set to '' to hide it. */
+		status: 'Open to opportunities'
+	}
 } as const;
 
 /** "Ankit Karna" → "AK". Used for the logo square in the header. */

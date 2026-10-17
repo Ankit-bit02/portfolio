@@ -15,7 +15,6 @@ export const skillGroups: SkillGroup[] = [
 			{ name: 'C#', project: DHHRM },
 			{ name: 'Python', project: VPHRM },
 			{ name: 'Object-oriented programming', project: DHHRM },
-			{ name: 'Data structures & algorithms', project: null },
 			{ name: 'FastAPI & LLM pipelines', project: INSIGHT }
 		]
 	},
