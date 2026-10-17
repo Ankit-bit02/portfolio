@@ -21,7 +21,7 @@
 		<!-- Call-to-action buttons -->
 		<div class="ctas">
 			<a href="/#projects" class="btn btn--primary">Explore my projects →</a>
-			<button type="button" class="btn btn--outline" onclick={ui.openResume}>View résumé</button>
+			<button type="button" class="btn btn--outline" onclick={ui.openResume}>View resume</button>
 			<a href="/#contact" class="contact-link">Contact me</a>
 		</div>
 

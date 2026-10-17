@@ -22,13 +22,13 @@
 <!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions -->
 <div class="backdrop" onclick={close}>
 	<!-- svelte-ignore a11y_click_events_have_key_events -->
-	<div class="modal" role="dialog" aria-modal="true" aria-label="Résumé" tabindex="-1" onclick={(e) => e.stopPropagation()}>
+	<div class="modal" role="dialog" aria-modal="true" aria-label="Resume" tabindex="-1" onclick={(e) => e.stopPropagation()}>
 		<!-- ===== Toolbar ===== -->
 		<div class="toolbar">
 			<span class="file">resume.pdf · preview</span>
 			<div class="actions">
 				{#if site.resumeAvailable}
-					<a class="download" href={site.resumePdf} download>Download PDF</a>
+					<a class="download" href={site.resumePdf} download="Ankit_Karna_Resume.pdf">Download PDF</a>
 				{:else}
 					<span class="missing" title="Add static/documents/resume.pdf to enable">
 						Download PDF, file not added yet

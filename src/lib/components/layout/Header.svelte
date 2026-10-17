@@ -58,7 +58,7 @@
 			<button type="button" class="jump" onclick={ui.openCommand} aria-label="Open quick navigation">
 				Jump to…<kbd>{shortcut}</kbd>
 			</button>
-			<button type="button" class="resume" onclick={ui.openResume}>Résumé</button>
+			<button type="button" class="resume" onclick={ui.openResume}>Resume</button>
 		</div>
 
 		<!-- Mobile controls -->
@@ -90,7 +90,7 @@
 					{item.label}
 				</a>
 			{/each}
-			<button type="button" class="mobile-resume" onclick={ui.openResume}>View résumé</button>
+			<button type="button" class="mobile-resume" onclick={ui.openResume}>View resume</button>
 		</nav>
 	{/if}
 </header>

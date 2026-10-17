@@ -41,7 +41,7 @@
 			group: 'Project' as const,
 			run: () => goto(`/projects/${p.slug}`)
 		})),
-		{ title: 'View résumé', detail: 'Open the résumé preview', group: 'Action', run: () => ui.openResume() },
+		{ title: 'View resume', detail: 'Open the resume preview', group: 'Action', run: () => ui.openResume() },
 		{
 			title: 'Copy email address',
 			detail: site.email,

@@ -35,7 +35,7 @@
 					<dd><a href={site.linkedin.url} target="_blank" rel="noopener" class="mono">{site.linkedin.label}</a></dd>
 				</div>
 				<div>
-					<dt>Résumé</dt>
+					<dt>Resume</dt>
 					<dd><button type="button" class="resume" onclick={ui.openResume}>View / download</button></dd>
 				</div>
 			</dl>

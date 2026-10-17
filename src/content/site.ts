@@ -31,7 +31,7 @@ export const site = {
 	 * enable the "Download PDF" button in the résumé preview.
 	 */
 	resumePdf: '/documents/resume.pdf',
-	resumeAvailable: false,
+	resumeAvailable: true,
 
 	// ---- SEO ------------------------------------------------------------------
 	seo: {
