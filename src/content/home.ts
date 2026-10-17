@@ -1,10 +1,3 @@
-// =============================================================================
-// HOME PAGE COPY
-// -----------------------------------------------------------------------------
-// Text for the hero, about and contact sections. Section-specific data
-// (projects, skills, notes, API explorer...) has its own file in this folder.
-// =============================================================================
-
 export const hero = {
 	title: 'Building reliable software through clean code and practical engineering.',
 	intro:
@@ -12,7 +5,7 @@ export const hero = {
 	/** Pill under the buttons; links to the project with this slug. */
 	currentWork: {
 		text: 'Currently building a mobile app for a business client',
-		projectSlug: 'business-mobile-app'
+		projectSlug: 'sales-pwa'
 	}
 };
 

@@ -1,7 +1,3 @@
-<!--
-  CaseHero — top of a case study: back link, category + badge, title,
-  overview, meta grid and the yellow DRAFT notice (hidden if notice is '').
--->
 <script lang="ts">
 	import type { Project } from '$lib/types';
 	import StatusBadge from '$lib/components/ui/StatusBadge.svelte';
@@ -32,7 +28,7 @@
 
 		{#if project.notice}
 			<div class="notice">
-				<span class="tag">DRAFT</span>
+				<span class="tag">NOTE</span>
 				<span>{project.notice}</span>
 			</div>
 		{/if}

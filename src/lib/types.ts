@@ -1,11 +1,3 @@
-// =============================================================================
-// SHARED TYPES
-// -----------------------------------------------------------------------------
-// Shapes of the content in src/content/*. If you add a field to a project,
-// add it here first; TypeScript will then point you at every place to update.
-// =============================================================================
-
-/** A titled row: used for tech choices, responsibilities, decisions, links. */
 export interface Row {
 	title: string;
 	detail: string;
@@ -59,10 +51,12 @@ export interface Project {
 	linksNote: string;
 
 	// ---- Case study page (/projects/<slug>) -----------------------------------
+	// Any section left empty ('' or []) or omitted (optional fields) is
+	// hidden on the page, along with its entry in "On this page".
 	overview: string;
 	/** Label/value pairs under the case study title. */
 	meta: { label: string; value: string }[];
-	/** Yellow "DRAFT" notice under the meta. Leave empty ('') to hide it. */
+	/** Yellow notice under the meta (confidentiality, status...). '' hides it. */
 	notice: string;
 	problemStatement: string;
 	requirements: string[];
@@ -71,10 +65,10 @@ export interface Project {
 	technology: Row[];
 	responsibilities: Row[];
 	decisions: Row[];
-	apiExample: CodeSample;
+	apiExample?: CodeSample;
 	tests: TestCase[];
 	debugSteps: string[];
-	codeExample: CodeSample;
+	codeExample?: CodeSample;
 	security: string[];
 	challenges: Row[];
 	lessons: string[];

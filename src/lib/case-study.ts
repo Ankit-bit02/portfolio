@@ -1,13 +1,3 @@
-// =============================================================================
-// CASE STUDY SECTION BUILDER
-// -----------------------------------------------------------------------------
-// Turns a Project (src/content/projects.ts) into the ordered list of sections
-// rendered on /projects/<slug>. Each section can contain any combination of
-// text, bullets, rows, layers, code, tests and steps; CaseSection.svelte
-// renders whichever parts are present.
-//
-// To rename, reorder, or add a section, edit the array in buildCaseSections.
-// =============================================================================
 import type { ArchitectureLayer, CodeSample, Project, Row, TestCase } from './types';
 
 export interface CaseSection {
@@ -57,5 +47,25 @@ export function buildCaseSections(p: Project): CaseSection[] {
 		{ id: 'links', title: 'Links', rows: p.links }
 	];
 
-	return sections.map((s, i) => ({ ...s, number: String(i + 1).padStart(2, '0') }));
+	// Drop empty blocks, then drop sections left with nothing to show, so a
+	// project can skip any section by leaving its field empty.
+	const nonEmpty = <T>(value: T[] | undefined) => (value && value.length ? value : undefined);
+	return sections
+		.map((s) => ({
+			...s,
+			text: s.text || undefined,
+			bullets: nonEmpty(s.bullets),
+			rows: nonEmpty(s.rows),
+			layers: nonEmpty(s.layers),
+			tests: nonEmpty(s.tests),
+			steps: nonEmpty(s.steps),
+			code: s.code?.code ? s.code : undefined
+		}))
+		.filter((s) => s.bullets || s.rows || s.layers || s.tests || s.steps || s.code || (s.text && !isDefaultText(s)))
+		.map((s, i) => ({ ...s, number: String(i + 1).padStart(2, '0') }));
+}
+
+/** Sections whose only text is the generic caption shouldn't render on their own. */
+function isDefaultText(s: SectionDraft) {
+	return s.id === 'architecture' || s.id === 'testing';
 }
